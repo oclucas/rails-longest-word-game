@@ -1,0 +1,18 @@
+<div class="container text-center">
+<h1>Result</h1>
+
+<div class="results">
+<% if @letter_answer.all? { |letter| @letter_answer.count(letter) > params[:letters].count(letter) } %>
+Sorry but <strong><%= params[:word] %></strong> can't be build out of <%= params[:letters] %>
+<% elsif @api == false %>
+Sorry but </strong><%= params[:word] %></strong> does not seem to be an English word.
+<% else %>
+You win!
+<% end  %>
+
+</div>
+
+<%= link_to "Play again", new_path %>
+
+
+</div>
